@@ -1,17 +1,18 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using api_calc_net.Models;
+using Newtonsoft.Json.Linq;
 
 namespace api_calc_net.Services
 {
     public class CountryService
     {
-        public async Task<List<string>> GetContriesAsync()
+        public async Task<Countries> GetContriesAsync()
         {
             using HttpClient client = new();
             string url = "https://restcountries.com/v3.1/all";
             HttpResponseMessage response = await client.GetAsync(url);
             response.EnsureSuccessStatusCode();
             string json = await response.Content.ReadAsStringAsync();
-            return CreateCountryList(json);
+            return new Countries(CreateCountryList(json));
         }
 
         public List<string> CreateCountryList(string response)

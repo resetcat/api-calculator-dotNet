@@ -1,4 +1,5 @@
-﻿using api_calc_net.Services;
+﻿using api_calc_net.Models;
+using api_calc_net.Services;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -17,7 +18,7 @@ namespace api_calc_net.Controllers
         }
 
         [HttpGet]
-        public async Task<List<string>> Get()
+        public async Task<Countries> Get()
         {
             return await _countryService.GetContriesAsync();
         }
