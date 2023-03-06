@@ -30,7 +30,7 @@ namespace api_calc_net.Controllers
         [HttpGet("task3")]
         public List<MinMaxInt> CalculateFromArray([FromBody] List<List<int>> input)
         {
-            return _calcService.getMinMaxIntList(input);
+            return _calcService.GetMinMaxIntList(input);
         }
 
     }

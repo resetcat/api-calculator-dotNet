@@ -13,7 +13,7 @@ namespace api_calc_net.Services
         }
 
 
-        private decimal Calculate(CalcInput calc)
+        public decimal Calculate(CalcInput calc)
         {
             int x = calc.X;
             int y = calc.Y;
@@ -29,7 +29,7 @@ namespace api_calc_net.Services
             };
             return Math.Round((decimal)result, 2);
         }
-        private void CheckDivisionByZero(string input)
+        public void CheckDivisionByZero(string input)
         {
             if (input.Contains("/0"))
             {
@@ -47,7 +47,7 @@ namespace api_calc_net.Services
             return list;
         }
 
-        private void ValidateStringList(List<string> input)
+        public void ValidateStringList(List<string> input)
         {
             foreach (string str in input)
             {
@@ -67,7 +67,7 @@ namespace api_calc_net.Services
             }
         }
 
-        public List<MinMaxInt> getMinMaxIntList(List<List<int>> input)
+        public List<MinMaxInt> GetMinMaxIntList(List<List<int>> input)
         {
             List<MinMaxInt> minMaxList = new();
             foreach (List<int> list in input)
@@ -79,7 +79,7 @@ namespace api_calc_net.Services
             return minMaxList;
         }
 
-        private void ValidateList(List<int> list)
+        public void ValidateList(List<int> list)
         {
             if (list.Count > 5)
             {
